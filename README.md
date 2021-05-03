@@ -16,3 +16,7 @@ Simularly by using  <code> iviz.MarkerBodyName = "gripper_r_base"</code> and sel
 In this example we have used the gripper base. 
 
 <img src="https://github.com/souvik0306/YuMi-Robot-Modelling-and-Control/blob/master/YuMi_Enlarged_DOFs.jpg" width="650" height="500">
+
+Trajectory Control - 
+<img src="https://github.com/souvik0306/YuMi-Robot-Modelling-and-Control/blob/master/YuMi_Trajectory.gif" width="650" height="500">
+
