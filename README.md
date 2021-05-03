@@ -10,7 +10,7 @@ The Red, Green and Blue protudings denote the three axis of rotation for the rob
 2. Pitch (Green)
 3. Roll (Red)
 
-Simularly by using  <code> iviz.MarkerBodyName = "gripper_r_base"</code> and selecting a particluar part as marker body we can move it by 3 DOFs
-
 <img src="https://github.com/souvik0306/YuMi-Robot-Modelling-and-Control/blob/master/Yumi_Enlarged.jpg" width="650" height="500">
 
+Simularly by using  <code> iviz.MarkerBodyName = "gripper_r_base"</code> and selecting a particluar part as marker body we can move it by 3 DOFs. 
+In this example we have used the gripper base. 
