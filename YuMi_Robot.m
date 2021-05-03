@@ -65,7 +65,11 @@ for i = 1:numSamples
  iviz.Configuration = q(:,i);
  waitfor(rateCtrlObj);
 end
-
+load abbSavedConfigs.mat configSequence
+% Define initial state
+q0 = configSequence(:,1); % Position
+dq0 = zeros(size(q0)); % Velocity
+ddq0 = zeros(size(q0)); % Acceleration
 
 
 
