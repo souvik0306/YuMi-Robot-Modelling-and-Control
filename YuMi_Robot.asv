@@ -6,7 +6,7 @@ clear all
 robot = loadrobot('abbYumi', 'Gravity', [0 0 -9.81]);
 iviz = interactiveRigidBodyTree(robot);
 ax = gca;
-%builds a collision object for the robotic arm
+%builds collision objecta around the robot
 plane = collisionBox(1.5,1.5,0.05);
 plane.Pose = trvec2tform([0.25 0 -0.025]);
 show(plane,'Parent', ax);
@@ -16,7 +16,7 @@ leftShelf.Pose = trvec2tform([0.3 -.65 0.1]);
 [~, patchObj] = show(leftShelf,'Parent',ax);
 %color is roken down in RGB components with 1x1 denoting
 %Red, 1x2 denoting Green and 1x3 denoting Blue
-patchObj.FaceColor = [1 0 0];
+patchObj.FaceColor = [0 0 1];
 
 rightShelf = collisionBox(0.25,0.1,0.2);
 rightShelf.Pose = trvec2tform([0.3 .65 0.1]);
@@ -40,6 +40,10 @@ patchObj.FaceColor = [0 1 0];
 iviz.MarkerBodyName = "gripper_r_base";
 % iviz.MarkerBodyName = "yumi_link_2_r";
 % iviz.MarkerControlMethod = "JointControl";
+
+load abbYumiSaveTrajectoryWaypts.mat
+removeConfigurations(iviz) % Clear stored configurations
+
 
 
 

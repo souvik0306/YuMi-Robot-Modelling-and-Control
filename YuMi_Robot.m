@@ -38,8 +38,43 @@ centerTable.Pose = trvec2tform([0.75 0 0.025]);
 [~, patchObj] = show(centerTable,'Parent',ax);
 patchObj.FaceColor = [0 1 0];
 iviz.MarkerBodyName = "gripper_r_base";
-% iviz.MarkerBodyName = "yumi_link_2_r";
-% iviz.MarkerControlMethod = "JointControl";
+iviz.MarkerBodyName = "yumi_link_2_r";
+iviz.MarkerControlMethod = "JointControl";
+
+load abbYumiSaveTrajectoryWaypts.mat
+removeConfigurations(iviz) % Clear stored configurations
+% Start at a valid starting configuration
+iviz.Configuration = startingConfig;
+addConfiguration(iviz)
+% Specify the entire set of waypoints
+iviz.StoredConfigurations = [startingConfig, ...
+ graspApproachConfig, ...
+ graspPoseConfig, ...
+ graspDepartConfig, ...
+ placeApproachConfig, ...
+ placeConfig, ...
+ placeDepartConfig, ...
+ startingConfig];
+
+numSamples = 100*size(iviz.StoredConfigurations, 2) + 1;
+[q,~,~, tvec] = trapveltraj(iviz.StoredConfigurations,numSamples,'EndTime',2);
+iviz.ShowMarker = false;
+showFigure(iviz)
+rateCtrlObj = rateControl(numSamples/(max(tvec) + tvec(4)));
+for i = 1:numSamples
+ iviz.Configuration = q(:,i);
+ waitfor(rateCtrlObj);
+end
+
+
+
+
+
+
+
+
+
+
 
 
 
