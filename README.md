@@ -5,7 +5,7 @@ includes flexible hands, parts feeding systems, camera-based part location and s
 
 <img src="https://github.com/souvik0306/YuMi-Robot-Modelling-and-Control/blob/master/YuMi_Robot_First_Look.jpg" width="650" height="500">
 
-The Red, Green and Blue protudings denote the three axis of rotation for the robotic hand, giving the robotic arm's shoulder three degrees of freedom (3 DOF)- 
+The Red, Green and Blue protudings denote the three axis of rotation for the robotic shoulder, giving it three degrees of freedom (3 DOF)- 
 1. Yaw (Blue)
 2. Pitch (Green)
 3. Roll (Red)
