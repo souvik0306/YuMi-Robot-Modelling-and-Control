@@ -19,5 +19,5 @@ In this example we have used the gripper base.
 
 Trajectory Control - 
 
-<img src="https://github.com/souvik0306/YuMi-Robot-Modelling-and-Control/blob/master/Trajectory_1.gif" width="850" height="500">
+<img src="https://github.com/souvik0306/YuMi-Robot-Modelling-and-Control/blob/master/Simulation_1.gif" width="850" height="500">
 
