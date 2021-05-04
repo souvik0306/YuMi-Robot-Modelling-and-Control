@@ -17,7 +17,8 @@ In this example we have used the gripper base.
 
 <img src="https://github.com/souvik0306/YuMi-Robot-Modelling-and-Control/blob/master/YuMi_Enlarged_DOFs.jpg" width="650" height="500">
 
-Trajectory Control - 
+Trajectory Control - A trapezoidal velocity profile is generated using <code>trapveltraj</code>. A trapezoidal velocity profile
+means the robot stops smoothly at each waypoint, but achieves a set max speed while in motion.
 
 <img src="https://github.com/souvik0306/YuMi-Robot-Modelling-and-Control/blob/master/Simulation_1.gif" width="850" height="500">
 
