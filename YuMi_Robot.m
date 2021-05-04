@@ -57,7 +57,7 @@ iviz.StoredConfigurations = [startingConfig, ...
  startingConfig];
 
 numSamples = 100*size(iviz.StoredConfigurations, 2) + 1;
-[q,~,~, tvec] = trapveltraj(iviz.StoredConfigurations,numSamples,'EndTime',2);
+[q,~,~, tvec] = trapveltraj(iviz.StoredConfigurations,numSamples,'EndTime',7);
 iviz.ShowMarker = false;
 showFigure(iviz)
 rateCtrlObj = rateControl(numSamples/(max(tvec) + tvec(4)));
@@ -70,7 +70,16 @@ load abbSavedConfigs.mat configSequence
 q0 = configSequence(:,1); % Position
 dq0 = zeros(size(q0)); % Velocity
 ddq0 = zeros(size(q0)); % Acceleration
+simout = sim('modelWithSimplifiedSystemDynamics.slx');
 
+% Visualize the motion using the interactiveRigidBodyTree object.
+iviz.ShowMarker = false;
+iviz.showFigure;
+rateCtrlObj = rateControl(length(simout.tout)/(max(simout.tout)));
+for i = 1:length(simout.tout)
+    iviz.Configuration = simout.yout{1}.Values.Data(i,:);
+    waitfor(rateCtrlObj);
+end
 
 
 
